@@ -2,7 +2,6 @@
 Credentials for instagram
 '''
 
-username = "meditationchilllandmusic"
-password = "Amy&Lucy0803"
+username = "seu usuario"
+password = "sua senha"
 hashtag = "chillout"
-#profile = "guiverdoodt",
