@@ -47,11 +47,12 @@ class InstagramBot:
         salvar_suas_informacoes_de_login.click()
         time.sleep(3)
 
-        #Altere aqui para a hashtag que você deseja usar.
+        #Buscará a hashtag adicionada no credentials.py file
         self.comente_nas_fotos_com_a_hashtag(credentials.hashtag)
 
 
     @staticmethod
+    #Definindo o robô para escrever como um humano
     def type_like_a_person(sentence, single_input_field):
 
         #Este código irá basicamente permitir que você simule a digitação como uma pessoa
@@ -59,19 +60,19 @@ class InstagramBot:
         for letter in sentence:
             single_input_field.send_keys(letter)
             time.sleep(random.randint(1, 5) / 30)
-
+    
     def comente_nas_fotos_com_a_hashtag(self, hashtag):
         links_de_posts = []
         driver = self.driver
         driver.get("https://www.instagram.com/explore/tags/" + hashtag + "/")
         time.sleep(5)
         
-        #Altere o segundo valor aqui para que ele desça a quantidade de páginas que você quiser: 
-        #Quer que ele desça 5 páginas então você deve alterar de range(1,3) para range(1,5)
-        for i in range(1, 20):  
+        #Altere o segundo valor aqui para que ele desça a quantidade de páginas que você quiser:
+        for i in range(1, 3):  #Quer que ele desça 5 páginas então você deve alterar de range(1,3) para range(1,5)
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             time.sleep(3)
-        
+            
+        #Faz a contagem das fotos analisadas de acordo com as hashtag
         hrefs = driver.find_elements_by_tag_name("a")
         pic_hrefs = [elem.get_attribute("href") for elem in hrefs]
         print(hashtag + " fotos: " + str(len(pic_hrefs)))
@@ -86,10 +87,12 @@ class InstagramBot:
             driver.get(pic_href)
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             try:
+                #Curte as fotos antes de comentar
                 photo_like = driver.find_element_by_class_name('fr66n')
                 photo_like.click()
                 time.sleep(3)
-
+                
+                #Comentários
                 comments = [
                     # Remova esses comentários e insira os seus comentários aqui
                     "Wow, amazing! ❤️",
@@ -119,6 +122,6 @@ class InstagramBot:
                 
 
 
-# Entre com o usuário e senha aqui
+#Puxa as credenciais do arquivo credentials.py
 guiBot = InstagramBot(credentials.username, credentials.password)
 guiBot.login()
