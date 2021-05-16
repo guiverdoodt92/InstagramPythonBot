@@ -7,14 +7,6 @@ Redes Sociais:
 * [Site](www.beacons.page/guiverdoodt)
 * [Instagram](https://www.instagram.com/guiverdoodt/)
 * [Facebook](https://www.facebook.com/guiverdoodt92/)
-
----
-
-# Instruções de como usar este script:
-
- - Se já usou o github antes já deve saber como fazer o download deste arquivo.
- - Se você nunca usou o GitHub(este site) antes, veja o que fazer abaixo
-
 ---
 
 # Mini-Tutorial de como usar o bot
